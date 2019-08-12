@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Fragment } from 'react';
 import { getLoggedInUser } from '../utils';
 
 /*
@@ -15,4 +15,13 @@ import { getLoggedInUser } from '../utils';
 */
 
 export const WithTooltip = ({ children }) => {
+  const [tooltipVisible, setTooltipVisible] = useState(false);
+  const onClick = () => setTooltipVisible(!tooltipVisible);
+
+  return (
+    <Fragment>
+      { tooltipVisible ? <div data-testid="tooltip">Hello, i'm Tooltip</div> : null }
+      { children(onClick) }
+    </Fragment>
+  )
 };
