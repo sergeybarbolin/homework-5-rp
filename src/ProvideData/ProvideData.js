@@ -18,9 +18,8 @@ import {getLoggedInUser} from '../utils'
   const user = getLoggedInUser()
 */
 
-export const WithLoggedInUser = props => {
+export const WithLoggedInUser = ({ children }) => {
   const user = getLoggedInUser();
-  const { children } = props;
   
   return children(user);
 }
